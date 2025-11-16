@@ -1,3 +1,12 @@
+@font-face {
+  font-family: Acme-Regular;
+  src: url("/assets/fonts/Acme-Regular.ttf");
+}
+@font-face {
+  font-family: SignikaNegative-VariableFont_wght;
+  src: url("/assets/fonts/SignikaNegative-VariableFont_wght.ttf");
+}
+
 .main_header_div {
   display: flex;
   background-color: #1b3c53;
@@ -13,7 +22,7 @@
   height: 80px;
 }
 .header_left_side h1 {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Acme-Regular;
   color: rgb(210, 222, 226);
   padding-left: 5px;
 }
@@ -28,4 +37,5 @@
   border-radius: 10px;
   padding: 8px 15px;
   width: 60%;
+  font-family: SignikaNegative-VariableFont_wght;
 }
