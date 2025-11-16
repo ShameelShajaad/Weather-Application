@@ -39,3 +39,9 @@
   width: 60%;
   font-family: SignikaNegative-VariableFont_wght;
 }
+.search_icon {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert();
+  padding-right: 5px;
+}
