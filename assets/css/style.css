@@ -6,6 +6,10 @@
   font-family: SignikaNegative-VariableFont_wght;
   src: url("/assets/fonts/SignikaNegative-VariableFont_wght.ttf");
 }
+@font-face {
+  font-family: SignikaNegative-VariableFont_wght;
+  src: url("/assets/fonts/SignikaNegative-VariableFont_wght.ttf");
+}
 
 .main_header_div {
   display: flex;
@@ -44,4 +48,63 @@
   height: 25px;
   filter: brightness(0) invert();
   padding-right: 5px;
+}
+.left_mid_div {
+  background-color: aqua;
+  width: 50%;
+  display: flex;
+}
+.left_mid_top_div {
+  height: 50%;
+}
+.left_mid_top_left_div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.left_mid_top_left_div img {
+  width: auto;
+  height: 100px;
+}
+.left_mid_top_right_div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.left_mid_top_right_div img {
+  width: auto;
+  height: 25px;
+}
+
+.left_mid_bottom_div {
+  display: flex;
+  height: 50%;
+  align-items: center;
+}
+.left_mid_bottom_left_div {
+  display: block;
+  align-items: center;
+}
+.left_mid_bottom_left_div img {
+  width: auto;
+  height: 40px;
+}
+.left_mid_bottom_left_div p {
+  font-family: SignikaNegative-VariableFont_wght;
+}
+.left_mid_bottom_right_div {
+  display: block;
+  align-items: center;
+}
+.left_mid_bottom_right_div img {
+  width: auto;
+  height: 40px;
+}
+.left_mid_bottom_right_div p {
+  font-family: SignikaNegative-VariableFont_wght;
+}
+.right_mid_div {
+  background-color: blueviolet;
+  width: 50%;
+  display: flex;
 }
