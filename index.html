@@ -14,9 +14,143 @@
   </head>
 
   <body>
+    <!-- NAVBAR -->
 
-    <h1>Weather Application</h1>
+    <div class="container-fluid">
+      <div class="row main_header_div">
+        <div class="header_left_side">
+          <div class="page_logo_div">
+            <img src="assets/images/Weather Logo.png" alt="Weather Logo" />
+          </div>
+          <div class="page_title_div">
+            <h1 class="page_title">Weather Forecast</h1>
+          </div>
+        </div>
+        <div class="header_right_side">
+          <img
+            src="assets/icons/search.svg"
+            alt="search_icon"
+            class="search_icon"
+          />
+          <input type="text" placeholder="city" />
+        </div>
+      </div>
+    </div>
 
+    <!-- ------------------------------------------ -->
+
+    <!-- MID -->
+
+    <div class="">
+      <div class="main_mid_div">
+        <div class="left_mid_div">
+          <div class="left_mid_top_div">
+            <div class="left_mid_top_left_div">
+              <img
+                src="assets/icons/cloud-sun-fill.svg"
+                alt="Cloud Sun Fill"
+                class="cloud_sun_fill"
+              />
+            </div>
+            <div class="left_mid_top_right_div">
+              <div class="location_row">
+                <img
+                  src="assets/icons/geo-alt.svg"
+                  alt="Location Icon"
+                  class="Location_icon"
+                />
+                <p class="left_mid_top_right_p1">Colombo</p>
+              </div>
+              <p class="left_mid_top_right_p2">Sri Lanka</p>
+              <div class="temp_container">
+                <p class="left_mid_top_right_p3">13℃</p>
+                <p class="temp_max">35℃</p>
+                <p class="temp_min">21℃</p>
+              </div>
+              <p class="left_mid_top_right_p4">Fog</p>
+              <p class="left_mid_top_right_p5">Sunday, November 16, 2025</p>
+              <p class="left_mid_top_right_p5">9 : 29 AM</p>
+            </div>
+          </div>
+          <div class="left_mid_bottom_div">
+            <div class="left_mid_bottom_left_div">
+              <img
+                src="assets/icons/sunrise.svg"
+                alt="sunrise icon"
+                class="sunrise_icon"
+              />
+              <p>05:57 AM</p>
+            </div>
+            <div class="left_mid_bottom_right_div">
+              <img
+                src="assets/icons/sunset.svg"
+                alt="sunset icon"
+                class="sunset_icon"
+              />
+              <p>05:46 PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="right_mid_div">
+          <div class="right_mid_grid1">
+            <img
+              src="assets/icons/wind.svg"
+              alt="wind icon"
+              class="right_mid_grid_icon"
+            />
+            <p class="grid_p1">Wind Speed</p>
+            <p class="grid_p2">3 km/h</p>
+          </div>
+          <div class="right_mid_grid2">
+            <img
+              src="assets/icons/moisture.svg"
+              alt="humidity icon"
+              class="right_mid_grid_icon"
+            />
+            <p class="grid_p1">Humidity</p>
+            <p class="grid_p2">98%</p>
+          </div>
+          <div class="right_mid_grid3">
+            <img
+              src="assets/icons/clouds.svg"
+              alt="cloud cover icon"
+              class="right_mid_grid_icon"
+            />
+            <p class="grid_p1">Cloud Cover</p>
+            <p class="grid_p2">100%</p>
+          </div>
+          <div class="right_mid_grid4">
+            <img
+              src="assets/icons/brightness-low-fill.svg"
+              alt="uv index icon"
+              class="right_mid_grid_icon"
+            />
+            <p class="grid_p1">UV Index</p>
+            <p class="grid_p2">0 (Low)</p>
+          </div>
+          <div class="right_mid_grid5">
+            <img
+              src="assets/icons/speedometer2.svg"
+              alt="pressure icon"
+              class="right_mid_grid_icon"
+            />
+            <p class="grid_p1">Pressure</p>
+            <p class="grid_p2">1016hPa</p>
+          </div>
+          <div class="right_mid_grid6">
+            <img
+              src="assets/icons/eye.svg"
+              alt="visibility icon"
+              class="right_mid_grid_icon"
+            />
+            <p class="grid_p1">Visibility</p>
+            <p class="grid_p2">0 km</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------------------------------------ -->
     <script src="assets/js/spp.js"></script>
 
     <script
