@@ -64,7 +64,7 @@ Endpoints used:
 
 ## 📸 Screenshots
 
-![Weather App Screenshot](assets/images/screenshot.png)
+![Weather App Screenshot](assets/images/Screenshot.png)
 
 ---
 
