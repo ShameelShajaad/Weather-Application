@@ -32,7 +32,7 @@
             alt="search_icon"
             class="search_icon"
           />
-          <input type="text" placeholder="city" />
+          <input id="search" type="text" placeholder="city" />
         </div>
       </div>
     </div>
@@ -50,6 +50,7 @@
                 src="assets/icons/cloud-sun-fill.svg"
                 alt="Cloud Sun Fill"
                 class="cloud_sun_fill"
+                id="Weather_icon"
               />
             </div>
             <div class="left_mid_top_right_div">
@@ -59,17 +60,19 @@
                   alt="Location Icon"
                   class="Location_icon"
                 />
-                <p class="left_mid_top_right_p1">Colombo</p>
+                <p class="left_mid_top_right_p1" id="city">Colombo</p>
               </div>
-              <p class="left_mid_top_right_p2">Sri Lanka</p>
+              <p class="left_mid_top_right_p2" id="country">Sri Lanka</p>
               <div class="temp_container">
-                <p class="left_mid_top_right_p3">13℃</p>
-                <p class="temp_max">35℃</p>
-                <p class="temp_min">21℃</p>
+                <p class="left_mid_top_right_p3" id="current_temp">13℃</p>
+                <p class="temp_max" id="max_temp">35℃</p>
+                <p class="temp_min" id="min_temp">21℃</p>
               </div>
-              <p class="left_mid_top_right_p4">Fog</p>
-              <p class="left_mid_top_right_p5">Sunday, November 16, 2025</p>
-              <p class="left_mid_top_right_p5">9 : 29 AM</p>
+              <p class="left_mid_top_right_p4" id="condition">Fog</p>
+              <p class="left_mid_top_right_p5" id="date">
+                Sunday, November 16, 2025
+              </p>
+              <p class="left_mid_top_right_p5" id="time">9 : 29 AM</p>
             </div>
           </div>
           <div class="left_mid_bottom_div">
@@ -79,7 +82,7 @@
                 alt="sunrise icon"
                 class="sunrise_icon"
               />
-              <p>05:57 AM</p>
+              <p id="sunrise">05:57 AM</p>
             </div>
             <div class="left_mid_bottom_right_div">
               <img
@@ -87,7 +90,7 @@
                 alt="sunset icon"
                 class="sunset_icon"
               />
-              <p>05:46 PM</p>
+              <p id="sunset">05:46 PM</p>
             </div>
           </div>
         </div>
@@ -99,7 +102,7 @@
               class="right_mid_grid_icon"
             />
             <p class="grid_p1">Wind Speed</p>
-            <p class="grid_p2">3 km/h</p>
+            <p class="grid_p2" id="wind_speed">3 km/h</p>
           </div>
           <div class="right_mid_grid2">
             <img
@@ -108,7 +111,7 @@
               class="right_mid_grid_icon"
             />
             <p class="grid_p1">Humidity</p>
-            <p class="grid_p2">98%</p>
+            <p class="grid_p2" id="humidity">98%</p>
           </div>
           <div class="right_mid_grid3">
             <img
@@ -117,7 +120,7 @@
               class="right_mid_grid_icon"
             />
             <p class="grid_p1">Cloud Cover</p>
-            <p class="grid_p2">100%</p>
+            <p class="grid_p2" id="cloud_cover">100%</p>
           </div>
           <div class="right_mid_grid4">
             <img
@@ -126,7 +129,7 @@
               class="right_mid_grid_icon"
             />
             <p class="grid_p1">UV Index</p>
-            <p class="grid_p2">0 (Low)</p>
+            <p class="grid_p2" id="uv_index">0 (Low)</p>
           </div>
           <div class="right_mid_grid5">
             <img
@@ -135,7 +138,7 @@
               class="right_mid_grid_icon"
             />
             <p class="grid_p1">Pressure</p>
-            <p class="grid_p2">1016hPa</p>
+            <p class="grid_p2" id="pressure">1016hPa</p>
           </div>
           <div class="right_mid_grid6">
             <img
@@ -144,7 +147,7 @@
               class="right_mid_grid_icon"
             />
             <p class="grid_p1">Visibility</p>
-            <p class="grid_p2">0 km</p>
+            <p class="grid_p2" id="visibility">0 km</p>
           </div>
         </div>
       </div>
