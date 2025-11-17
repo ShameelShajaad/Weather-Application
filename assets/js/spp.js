@@ -11,6 +11,12 @@ let time = document.getElementById("time");
 let Weather_icon = document.getElementById("Weather_icon");
 let sunrise = document.getElementById("sunrise");
 let sunset = document.getElementById("sunset");
+let wind_speed=document.getElementById("wind_speed")
+let humidity=document.getElementById("humidity")
+let cloud_cover=document.getElementById("cloud_cover")
+let uv_index=document.getElementById("wind_speed")
+let pressure=document.getElementById("pressure")
+let visibility=document.getElementById("visibility")
 
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -22,15 +28,20 @@ input.addEventListener("keypress", (e) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+
         city.innerText = data.location.name;
+
         let icon_url = "http:" + data.current.condition.icon;
         Weather_icon.src = icon_url;
+
         condition.innerText = data.current.condition.text;
         current_temp.innerText = data.current.temp_c + "℃";
+
         let localtime = data.location.localtime;
         let [datee, timee] = localtime.split(" ");
         let [year, month, day] = datee.split("-");
         let [hour, minute] = timee.split(":");
+
         date.innerText =
           findDay(year, month, day) +
           ", " +
@@ -41,6 +52,12 @@ input.addEventListener("keypress", (e) => {
           year;
         let x = hour >= 12 ? "PM" : "AM";
         time.innerText = hour + " : " + minute + " " + x;
+        wind_speed.innerText=data.current.wind_kph+" km/h"
+        humidity.innerText=data.current.humidity+" %"
+        cloud_cover.innerText=data.current.cloud+" %"
+        uv_index.innerText=data.current.uv+" (low)"
+        pressure.innerText=data.current.pressure_mb+" hPa"
+        visibility.innerText=data.current.vis_km+" km"
       });
 
     fetch(
