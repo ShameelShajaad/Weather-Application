@@ -2,6 +2,7 @@ console.log("js loaded!!");
 
 let input = document.getElementById("search");
 let city = document.getElementById("city");
+let country = document.getElementById("country");
 let condition = document.getElementById("condition");
 let current_temp = document.getElementById("current_temp");
 let max_temp = document.getElementById("max_temp");
@@ -11,12 +12,12 @@ let time = document.getElementById("time");
 let Weather_icon = document.getElementById("Weather_icon");
 let sunrise = document.getElementById("sunrise");
 let sunset = document.getElementById("sunset");
-let wind_speed=document.getElementById("wind_speed")
-let humidity=document.getElementById("humidity")
-let cloud_cover=document.getElementById("cloud_cover")
-let uv_index=document.getElementById("wind_speed")
-let pressure=document.getElementById("pressure")
-let visibility=document.getElementById("visibility")
+let wind_speed = document.getElementById("wind_speed");
+let humidity = document.getElementById("humidity");
+let cloud_cover = document.getElementById("cloud_cover");
+let uv_index = document.getElementById("uv_index");
+let pressure = document.getElementById("pressure");
+let visibility = document.getElementById("visibility");
 
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -30,6 +31,7 @@ input.addEventListener("keypress", (e) => {
         console.log(data);
 
         city.innerText = data.location.name;
+        country.innerText = data.location.country;
 
         let icon_url = "http:" + data.current.condition.icon;
         Weather_icon.src = icon_url;
@@ -52,12 +54,26 @@ input.addEventListener("keypress", (e) => {
           year;
         let x = hour >= 12 ? "PM" : "AM";
         time.innerText = hour + " : " + minute + " " + x;
-        wind_speed.innerText=data.current.wind_kph+" km/h"
-        humidity.innerText=data.current.humidity+" %"
-        cloud_cover.innerText=data.current.cloud+" %"
-        uv_index.innerText=data.current.uv+" (low)"
-        pressure.innerText=data.current.pressure_mb+" hPa"
-        visibility.innerText=data.current.vis_km+" km"
+
+        wind_speed.innerText = data.current.wind_kph + " km/h";
+        humidity.innerText = data.current.humidity + " %";
+        cloud_cover.innerText = data.current.cloud + " %";
+
+        let uv_value = data.current.uv == null ? "0" : data.current.uv;
+        let uv_text =
+          uv_value <= 2
+            ? "Low"
+            : uv_value <= 5
+            ? "Moderate"
+            : uv_value <= 7
+            ? "High"
+            : uv_value <= 10
+            ? "Very High"
+            : "Extreme";
+        uv_index.innerText = uv_value + " (" + uv_text + ")";
+
+        pressure.innerText = data.current.pressure_mb + " hPa";
+        visibility.innerText = data.current.vis_km + " km";
       });
 
     fetch(
@@ -76,7 +92,7 @@ input.addEventListener("keypress", (e) => {
         let time = astro.sunrise;
         let [rise_hour, rise_minute] = time.split(":");
         sunrise.innerText = rise_hour + " : " + rise_minute;
-        
+
         time = astro.sunset;
         [rise_hour, rise_minute] = time.split(":");
         sunset.innerText = rise_hour + " : " + rise_minute;
