@@ -11,12 +11,12 @@
   src: url("/assets/fonts/SignikaNegative-VariableFont_wght.ttf");
 }
 
-body{
-  background-color: #1b3c53;
+body {
+  background-color: #0f1113;
+  margin: 0;
 }
 .main_header_div {
   display: flex;
-  background-color: #1b3c53;
   height: 100px;
 }
 .header_left_side {
@@ -54,18 +54,24 @@ body{
 }
 .main_mid_div {
   display: flex;
-  width: 100%;
-  padding: 40px;
+  width: min(1100px, 95%);
+  margin: 36px auto;
+  padding: 30px;
   gap: 40px;
-  background-color: #1b3c53;
+  background-color: #2d3136;
   color: white;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
 }
 .left_mid_div {
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: flex-start;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  gap: 20px;
 }
 .left_mid_top_div {
   display: flex;
@@ -98,11 +104,13 @@ body{
 .left_mid_top_right_p2 {
   font-size: 18px;
   color: #d0d6d8;
+  padding-left: 33px;
 }
 .left_mid_top_right_p3 {
+  position: relative;
   font-size: 56px;
   font-weight: 700;
-  margin-top: 6px;
+  margin: 0;
 }
 .left_mid_top_right_p4 {
   font-size: 20px;
@@ -118,13 +126,50 @@ body{
 
 .left_mid_top_right_div img {
   width: auto;
-  height: 25px;
+  height: 22px;
+  display: block;
+}
+.location_row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.left_mid_top_right_p1 {
+  margin: 0;
+}
+.temp_row {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+.temp_highlow {
+  position: relative;
+  width: 80px;
+  height: 40px;
+  margin-top: -10px;
+}
+.temp_max {
+  position: absolute;
+  left: 0;
+  top: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e0e3e4;
+}
+.temp_min {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  font-size: 18px;
+  opacity: 0.9;
+  color: #cfd6d8;
 }
 .left_mid_bottom_div {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
+  width: 100%;
 }
 .left_mid_bottom_left_div,
 .left_mid_bottom_right_div {
@@ -132,20 +177,23 @@ body{
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  padding: 0;
+  gap: 5px;
 }
 .left_mid_bottom_left_div img,
 .left_mid_bottom_right_div img {
-  height: 55px;
+  height: 75px;
 }
 .left_mid_bottom_left_div p,
 .left_mid_bottom_right_div p {
   font-family: SignikaNegative-VariableFont_wght;
-  font-size: 16px;
+  font-size: 22px;
   margin: 0;
   color: #e6e8e9;
 }
 .left_mid_bottom_right_div {
-  display: block;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .right_mid_div {
