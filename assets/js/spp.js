@@ -3,7 +3,14 @@ console.log("js loaded!!");
 let input = document.getElementById("search");
 let city = document.getElementById("city");
 let condition = document.getElementById("condition");
+let current_temp = document.getElementById("current_temp");
+let max_temp = document.getElementById("max_temp");
+let min_temp = document.getElementById("min_temp");
 let date = document.getElementById("date");
+let time = document.getElementById("time");
+let Weather_icon = document.getElementById("Weather_icon");
+let sunrise = document.getElementById("sunrise");
+let sunset = document.getElementById("sunset");
 
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -16,12 +23,46 @@ input.addEventListener("keypress", (e) => {
       .then((data) => {
         console.log(data);
         city.innerText = data.location.name;
+        let icon_url = "http:" + data.current.condition.icon;
+        Weather_icon.src = icon_url;
         condition.innerText = data.current.condition.text;
-
+        current_temp.innerText = data.current.temp_c + "℃";
         let localtime = data.location.localtime;
-        let [datee, time] = localtime.split(" ");
+        let [datee, timee] = localtime.split(" ");
         let [year, month, day] = datee.split("-");
-        date.innerText = findDay(year, month, day)+", "+;
+        let [hour, minute] = timee.split(":");
+        date.innerText =
+          findDay(year, month, day) +
+          ", " +
+          findMonth(month) +
+          " " +
+          day +
+          ", " +
+          year;
+        let x = hour >= 12 ? "PM" : "AM";
+        time.innerText = hour + " : " + minute + " " + x;
+      });
+
+    fetch(
+      "http://api.weatherapi.com/v1/forecast.json?key=df232fca05674ebfb0c95804251611&q=" +
+        input.value +
+        "&aqi=no"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        let forecast = data.forecast.forecastday[0].day;
+        max_temp.innerText = forecast.maxtemp_c + "℃";
+        min_temp.innerText = forecast.mintemp_c + "℃";
+
+        let astro = data.forecast.forecastday[0].astro;
+
+        let time = astro.sunrise;
+        let [rise_hour, rise_minute] = time.split(":");
+        sunrise.innerText = rise_hour + " : " + rise_minute;
+        
+        time = astro.sunset;
+        [rise_hour, rise_minute] = time.split(":");
+        sunset.innerText = rise_hour + " : " + rise_minute;
       });
   }
 });
@@ -47,4 +88,23 @@ function findDay(y, m, d) {
   ];
 
   return days[d0];
+}
+function findMonth(m) {
+  let months = [
+    "",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  return months[m];
 }
