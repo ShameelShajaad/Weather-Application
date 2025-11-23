@@ -21,84 +21,93 @@ let visibility = document.getElementById("visibility");
 
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    fetch(
-      "http://api.weatherapi.com/v1/current.json?key=df232fca05674ebfb0c95804251611&q=" +
-        input.value +
-        "&aqi=no"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-
-        city.innerText = data.location.name;
-        country.innerText = data.location.country;
-
-        let icon_url = "http:" + data.current.condition.icon;
-        Weather_icon.src = icon_url;
-
-        condition.innerText = data.current.condition.text;
-        current_temp.innerText = data.current.temp_c + "℃";
-
-        let localtime = data.location.localtime;
-        let [datee, timee] = localtime.split(" ");
-        let [year, month, day] = datee.split("-");
-        let [hour, minute] = timee.split(":");
-
-        date.innerText =
-          findDay(year, month, day) +
-          ", " +
-          findMonth(month) +
-          " " +
-          day +
-          ", " +
-          year;
-        let x = hour >= 12 ? "PM" : "AM";
-        time.innerText = hour + " : " + minute + " " + x;
-
-        wind_speed.innerText = data.current.wind_kph + " km/h";
-        humidity.innerText = data.current.humidity + " %";
-        cloud_cover.innerText = data.current.cloud + " %";
-
-        let uv_value = data.current.uv == null ? "0" : data.current.uv;
-        let uv_text =
-          uv_value <= 2
-            ? "Low"
-            : uv_value <= 5
-            ? "Moderate"
-            : uv_value <= 7
-            ? "High"
-            : uv_value <= 10
-            ? "Very High"
-            : "Extreme";
-        uv_index.innerText = uv_value + " (" + uv_text + ")";
-
-        pressure.innerText = data.current.pressure_mb + " hPa";
-        visibility.innerText = data.current.vis_km + " km";
-      });
-
-    fetch(
-      "http://api.weatherapi.com/v1/forecast.json?key=df232fca05674ebfb0c95804251611&q=" +
-        input.value +
-        "&aqi=no"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        let forecast = data.forecast.forecastday[0].day;
-        max_temp.innerText = forecast.maxtemp_c + "℃";
-        min_temp.innerText = forecast.mintemp_c + "℃";
-
-        let astro = data.forecast.forecastday[0].astro;
-
-        let time = astro.sunrise;
-        let [rise_hour, rise_minute] = time.split(":");
-        sunrise.innerText = rise_hour + " : " + rise_minute;
-
-        time = astro.sunset;
-        [rise_hour, rise_minute] = time.split(":");
-        sunset.innerText = rise_hour + " : " + rise_minute;
-      });
+    apiCall(input);
   }
 });
+
+async function apiCall(input) {
+  let resWeather = await fetch(
+    "http://api.weatherapi.com/v1/current.json?key=df232fca05674ebfb0c95804251611&q=" +
+      input.value +
+      "&aqi=no"
+  );
+  let resForecast = await fetch(
+    "http://api.weatherapi.com/v1/forecast.json?key=df232fca05674ebfb0c95804251611&q=" +
+      input.value +
+      "&aqi=no"
+  );
+
+  let weatherData = await resWeather.json();
+  let forecastData = await resForecast.json();
+
+  console.log(weatherData);
+  console.log(forecastData);
+
+  weatherDetails(weatherData);
+  forecastDetails(forecastData);
+}
+
+function weatherDetails(data) {
+  city.innerText = data.location.name;
+  country.innerText = data.location.country;
+
+  let icon_url = "http:" + data.current.condition.icon;
+  Weather_icon.src = icon_url;
+
+  condition.innerText = data.current.condition.text;
+  current_temp.innerText = data.current.temp_c + "℃";
+
+  let localtime = data.location.localtime;
+  let [datee, timee] = localtime.split(" ");
+  let [year, month, day] = datee.split("-");
+  let [hour, minute] = timee.split(":");
+
+  date.innerText =
+    findDay(year, month, day) +
+    ", " +
+    findMonth(month) +
+    " " +
+    day +
+    ", " +
+    year;
+  let x = hour >= 12 ? "PM" : "AM";
+  time.innerText = hour + " : " + minute + " " + x;
+
+  wind_speed.innerText = data.current.wind_kph + " km/h";
+  humidity.innerText = data.current.humidity + " %";
+  cloud_cover.innerText = data.current.cloud + " %";
+
+  let uv_value = data.current.uv == null ? "0" : data.current.uv;
+  let uv_text =
+    uv_value <= 2
+      ? "Low"
+      : uv_value <= 5
+      ? "Moderate"
+      : uv_value <= 7
+      ? "High"
+      : uv_value <= 10
+      ? "Very High"
+      : "Extreme";
+  uv_index.innerText = uv_value + " (" + uv_text + ")";
+
+  pressure.innerText = data.current.pressure_mb + " hPa";
+  visibility.innerText = data.current.vis_km + " km";
+}
+function forecastDetails(data) {
+  let forecast = data.forecast.forecastday[0].day;
+  max_temp.innerText = forecast.maxtemp_c + "℃";
+  min_temp.innerText = forecast.mintemp_c + "℃";
+
+  let astro = data.forecast.forecastday[0].astro;
+
+  let time = astro.sunrise;
+  let [rise_hour, rise_minute] = time.split(":");
+  sunrise.innerText = rise_hour + " : " + rise_minute;
+
+  time = astro.sunset;
+  [rise_hour, rise_minute] = time.split(":");
+  sunset.innerText = rise_hour + " : " + rise_minute;
+}
 
 function findDay(y, m, d) {
   y = parseInt(y);
