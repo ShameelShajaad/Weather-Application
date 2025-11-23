@@ -27,12 +27,12 @@ input.addEventListener("keypress", (e) => {
 
 async function apiCall(input) {
   let resWeather = await fetch(
-    "http://api.weatherapi.com/v1/current.json?key=df232fca05674ebfb0c95804251611&q=" +
+    "https://api.weatherapi.com/v1/current.json?key=df232fca05674ebfb0c95804251611&q=" +
       input.value +
       "&aqi=no"
   );
   let resForecast = await fetch(
-    "http://api.weatherapi.com/v1/forecast.json?key=df232fca05674ebfb0c95804251611&q=" +
+    "https://api.weatherapi.com/v1/forecast.json?key=df232fca05674ebfb0c95804251611&q=" +
       input.value +
       "&aqi=no"
   );
