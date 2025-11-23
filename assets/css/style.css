@@ -1,11 +1,14 @@
-@font-face {
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap");
+
+/* @font-face {
   font-family: Acme-Regular;
   src: url("/assets/fonts/Acme-Regular.ttf");
 }
 @font-face {
   font-family: SignikaNegative-VariableFont_wght;
   src: url("/assets/fonts/SignikaNegative-VariableFont_wght.ttf");
-}
+} */
 
 body {
   background-color: #0f1113;
@@ -25,7 +28,7 @@ body {
   height: 80px;
 }
 .header_left_side h1 {
-  font-family: Acme-Regular;
+  font-family: "Acme", sans-serif;
   color: rgb(210, 222, 226);
   padding-left: 5px;
 }
@@ -40,7 +43,7 @@ body {
   border-radius: 10px;
   padding: 8px 15px;
   width: 60%;
-  font-family: SignikaNegative-VariableFont_wght;
+  font-family: "Signika Negative", sans-serif;
 }
 .search_icon {
   width: 25px;
