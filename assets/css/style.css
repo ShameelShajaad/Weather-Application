@@ -1,14 +1,14 @@
 @font-face {
   font-family: Acme-Regular;
-  src: url("/fonts/Acme-Regular.ttf");
+  src: url("fonts/Acme-Regular.ttf");
 }
 @font-face {
   font-family: SignikaNegative-VariableFont_wght;
-  src: url("/fonts/SignikaNegative-VariableFont_wght.ttf");
+  src: url("fonts/SignikaNegative-VariableFont_wght.ttf");
 }
 @font-face {
   font-family: SignikaNegative-VariableFont_wght;
-  src: url("/fonts/SignikaNegative-VariableFont_wght.ttf");
+  src: url("fonts/SignikaNegative-VariableFont_wght.ttf");
 }
 
 body {
