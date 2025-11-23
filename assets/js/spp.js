@@ -51,7 +51,7 @@ function weatherDetails(data) {
   city.innerText = data.location.name;
   country.innerText = data.location.country;
 
-  let icon_url = "http:" + data.current.condition.icon;
+  let icon_url = "https:" + data.current.condition.icon;
   Weather_icon.src = icon_url;
 
   condition.innerText = data.current.condition.text;
